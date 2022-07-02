@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+header {
+  display: flex;
+  width: auto;
+  height: 100vh;
+  font-size: 2rem;
+  color: white;
+  background-color: #1c2424;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-icon {
+  margin-top: 20px;
+}
+
+.nav-icon__button {
+  display: flex;
+  margin: 8px;
+  padding: 2px;
+  transition: 0.4s all ease-in-out;
+  cursor: pointer;
+}
+.nav-icon__button:hover {
+  background-color: #242c34;
+  border-radius: 12px;
+}
+.nav-icon__button span {
+  margin: 32px 0;
+  transition: 0.4s all ease-in-out;
+  border-left: 6px solid transparent;
+}
+.nav-icon__button img {
+  width: 40px;
+  height: 40px;
+  margin: 16px;
+  filter: invert(100%);
+}
+
+.active {
+  transition: 0.4s all ease-in-out;
+  background-color: #242c34;
+  border-radius: 12px;
+}
+.active span {
+  margin: 16px 0;
+  transition: 0.4s all ease-in-out;
+  border-left: 6px solid #44b4ec;
+  border-radius: 12px;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  font-size: 4rem;
+  background-color: #242c2c;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.timer .title {
+  font-size: 5.6rem;
+  color: white;
+}
+.timer div {
+  font-size: 10rem;
+  font-weight: 400;
+  /* INPUTS */
+}
+.timer div input {
+  outline: none;
+  margin: auto;
+  border: none;
+  text-align: center;
+  background: none;
+  color: white;
+  font-size: 10rem;
+  font-weight: 400;
+}
+.timer div input[type=number]::-webkit-inner-spin-button,
+.timer div input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.timer div input:focus::-moz-placeholder {
+  opacity: 0;
+  -moz-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.timer div input:focus:-ms-input-placeholder {
+  opacity: 0;
+  -ms-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.timer div input:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.timer .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timer .buttons button {
+  display: flex;
+  width: 72px;
+  height: 72px;
+  margin: 12px;
+  font-size: 2.4rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 100%;
+  background-color: #44b4ec;
+  justify-content: center;
+  align-items: center;
+}
+.timer .buttons button img.start {
+  width: 24px;
+  height: 24px;
+}
+.timer .buttons button img.stop {
+  width: 28px;
+  height: 28px;
+}
+.timer .buttons button#reset {
+  border: 1px solid white;
+  background-color: #343c3c;
+}
+.timer .buttons button img.reset {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+}
+
+.chronometer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.chronometer .title {
+  font-size: 5.6rem;
+  color: white;
+}
+.chronometer div {
+  font-size: 10rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chronometer div span {
+  height: 120px;
+}
+.chronometer div .points {
+  height: 164px;
+}
+.chronometer div .info {
+  width: 112px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.chronometer div p {
+  font-size: 2.4rem;
+}
+.chronometer div #mili-seconds {
+  font-size: 8rem;
+}
+.chronometer .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chronometer .buttons button {
+  display: flex;
+  width: 72px;
+  height: 72px;
+  margin: 12px;
+  font-size: 2.4rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 100%;
+  background-color: #44b4ec;
+  justify-content: center;
+  align-items: center;
+}
+.chronometer .buttons button img.start {
+  width: 24px;
+  height: 24px;
+}
+.chronometer .buttons button img.stop {
+  width: 28px;
+  height: 28px;
+}
+.chronometer .buttons button#reset {
+  border: 1px solid white;
+  background-color: #343c3c;
+}
+.chronometer .buttons button img.reset {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+}/*# sourceMappingURL=mobile.css.map */
