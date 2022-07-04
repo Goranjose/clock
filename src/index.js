@@ -1,4 +1,4 @@
-let active_1 = false;
+// let active_1 = false;
 
 // BUTTONS
 let buttons = document.getElementById("buttons");
@@ -20,7 +20,7 @@ let hoursValue = 0;
 let minutesValue = 0;
 let secondsValue = 0;
 let miliSecondsValue = 0;
-let currentChronometer;
+let currentInterval;
 
 // CONSTANTLY CHANGING
 const clockContainer = document.getElementById("clock");
@@ -40,6 +40,11 @@ function active(btnAdd, btnRemove_1, btnRemove_2) {
 // CLEAN HTML
 function resetAll() {
   clockContainer.innerHTML = "";
+  hoursValue = 0;
+  minutesValue = 0;
+  secondsValue = 0;
+  miliSecondsValue = 0;
+  clearInterval(currentInterval);
 }
 
 // TIMER FUNCTION
@@ -47,11 +52,53 @@ function excecuteTimer() {
   location.hash = "#timer";
   resetAll();
 
+  document.title = `Timer - 00:00`;
+
   active(btnTimer, btnPomodoro, btnChronometer);
 
   showTitle("Timer");
   timerShowDisplay();
   chronometerShowButtons();
+
+  buttons.replaceChild(btnStart, btnStop);
+
+  // if (active_1 === false) {
+  //   buttons.replaceChild(btnStart, btnStop);
+  // } else {
+  //   buttons.replaceChild(btnStop, btnStart);
+  // }
+
+  btnStart.addEventListener("click", startTimer);
+
+  btnStop.addEventListener("click", stopTimer);
+  btnReset.addEventListener("click", resetTimer);
+}
+//
+
+function startTimer() {
+  buttons.replaceChild(btnStop, btnStart);
+
+  timerShowDisplayActive();
+  console.log(inputHours.value);
+
+  currentInterval = setInterval(() => {
+    secondsValue -= 1;
+    if (secondsValue === -1) {
+      secondsValue = 59;
+      minutesValue -= 1;
+      minutes.textContent = formatValue(minutesValue);
+    }
+    if (minutesValue === -1) {
+      minutesValue = 59;
+      hours.textContent = formatValue(hoursValue);
+    }
+    if (hoursValue === -1) {
+      hoursValue = 0;
+      minutesValue = 0;
+      secondsValue = 0;
+    }
+    seconds.textContent = formatValue(secondsValue);
+  }, 1000);
 }
 
 // POMODORO FUNCTION
@@ -69,17 +116,21 @@ function excecuteChronometer() {
   location.hash = "#chronometer";
   resetAll();
 
+  document.title = `Chronometer - 00:00`;
+
   active(btnChronometer, btnTimer, btnPomodoro);
 
   showTitle("Chronometer");
   chronometerShowDisplay();
   chronometerShowButtons();
 
-  if (active_1 === false) {
-    buttons.replaceChild(btnStart, btnStop);
-  } else {
-    buttons.replaceChild(btnStop, btnStart);
-  }
+  buttons.replaceChild(btnStart, btnStop);
+
+  // if (active_1 === false) {
+  //   buttons.replaceChild(btnStart, btnStop);
+  // } else {
+  //   buttons.replaceChild(btnStop, btnStart);
+  // }
 
   btnStart.addEventListener("click", startChronometer);
   btnStop.addEventListener("click", stopChronometer);
@@ -87,10 +138,10 @@ function excecuteChronometer() {
 }
 
 function startChronometer() {
-  active_1 = true;
+  // active_1 = true;
   buttons.replaceChild(btnStop, btnStart);
 
-  currentChronometer = setInterval(() => {
+  currentInterval = setInterval(() => {
     miliSecondsValue += 1;
 
     if (miliSecondsValue === 100) {
@@ -130,7 +181,7 @@ function stopChronometer() {
 
   buttons.replaceChild(btnStart, btnStop);
 
-  clearInterval(currentChronometer);
+  clearInterval(currentInterval);
 }
 
 function resetChronometer() {
@@ -141,9 +192,10 @@ function resetChronometer() {
   minutes.textContent = "00";
   seconds.textContent = "00";
   miliSeconds.textContent = "00";
+  document.title = `Chronometer - 00:00`;
   stopChronometer();
 }
 
 // INITIAL FUNCTION
-// excecuteTimer();
-excecuteChronometer();
+excecuteTimer();
+// excecuteChronometer();

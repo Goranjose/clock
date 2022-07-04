@@ -84,37 +84,66 @@ main {
   color: white;
 }
 .timer div {
+  display: flex;
   font-size: 10rem;
   font-weight: 400;
-  /* INPUTS */
+  justify-content: center;
+  align-items: center;
+}
+.timer div .points {
+  height: 190px;
+}
+.timer div .info {
+  display: flex;
+  width: 112px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .timer div input {
-  outline: none;
-  margin: auto;
-  border: none;
-  text-align: center;
-  background: none;
-  color: white;
   font-size: 10rem;
+  text-align: center;
+  outline: none;
+  color: white;
+  background: none;
+  border: none;
   font-weight: 400;
+}
+.timer div input[type=number] {
+  max-width: 120px;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  transition: opacity 0.2s;
 }
 .timer div input[type=number]::-webkit-inner-spin-button,
 .timer div input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 .timer div input:focus::-moz-placeholder {
-  opacity: 0;
   -moz-transition: opacity 0.2s;
   transition: opacity 0.2s;
+  opacity: 0;
 }
 .timer div input:focus:-ms-input-placeholder {
-  opacity: 0;
   -ms-transition: opacity 0.2s;
   transition: opacity 0.2s;
+  opacity: 0;
 }
 .timer div input:focus::placeholder {
-  opacity: 0;
   transition: opacity 0.2s;
+  opacity: 0;
+}
+.timer div span {
+  height: 120px;
+}
+.timer div label {
+  font-size: 2.4rem;
+}
+.timer div {
+  font-size: 10rem;
+  font-weight: 400;
 }
 .timer .buttons {
   display: flex;
@@ -164,25 +193,25 @@ main {
   color: white;
 }
 .chronometer div {
+  display: flex;
   font-size: 10rem;
   font-weight: 400;
-  display: flex;
   justify-content: center;
   align-items: center;
-}
-.chronometer div span {
-  height: 120px;
 }
 .chronometer div .points {
   height: 164px;
 }
 .chronometer div .info {
+  display: flex;
   width: 112px;
   height: 200px;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.chronometer div span {
+  height: 120px;
 }
 .chronometer div p {
   font-size: 2.4rem;

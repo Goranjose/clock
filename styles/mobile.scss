@@ -79,6 +79,7 @@ main {
   align-items: center;
 }
 
+// TIMER
 .timer {
   display: flex;
   flex-direction: column;
@@ -88,32 +89,46 @@ main {
   .title {
     font-size: 5.6rem;
     color: white;
-    // margin-bottom: 20px;
   }
 
   div {
+    display: flex;
     font-size: 10rem;
     font-weight: 400;
+    justify-content: center;
+    align-items: center;
 
-    /* INPUTS */
+    .points {
+      height: 190px;
+    }
+
+    .info {
+      display: flex;
+      width: 112px;
+      height: 200px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    // INPUTS
     input {
-      outline: none;
-      margin: auto;
-      border: none;
-      text-align: center;
-      background: none;
-      color: white;
       font-size: 10rem;
+      text-align: center;
+      outline: none;
+      color: white;
+      background: none;
+      border: none;
       font-weight: 400;
     }
 
-    // input[type="number"] {
-    //   max-width: 120px;
-    //   -webkit-appearance: textfield;
-    //   -moz-appearance: textfield;
-    //   appearance: textfield;
-    //   transition: opacity 0.2s;
-    // }
+    input[type="number"] {
+      max-width: 120px;
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
+      transition: opacity 0.2s;
+    }
 
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
@@ -121,9 +136,23 @@ main {
     }
 
     input:focus::placeholder {
-      opacity: 0;
       transition: opacity 0.2s;
+      opacity: 0;
     }
+
+    span {
+      height: 120px;
+    }
+
+    label {
+      font-size: 2.4rem;
+    }
+
+  }
+
+  div {
+    font-size: 10rem;
+    font-weight: 400;
   }
 
   .buttons {
@@ -168,7 +197,9 @@ main {
     }
   }
 }
+//
 
+// CHRONOMETER
 .chronometer {
   display: flex;
   flex-direction: column;
@@ -181,28 +212,27 @@ main {
   }
 
   div {
+    display: flex;
     font-size: 10rem;
     font-weight: 400;
-    display: flex;
     justify-content: center;
     align-items: center;
 
-    span {
-      height: 120px;
-    }
-
     .points {
-      // width: 20px;
       height: 164px;
     }
 
     .info {
+      display: flex;
       width: 112px;
       height: 200px;
-      display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+    }
+
+    span {
+      height: 120px;
     }
 
     p {
@@ -256,3 +286,4 @@ main {
     }
   }
 }
+//

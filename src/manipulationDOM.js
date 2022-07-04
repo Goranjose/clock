@@ -14,6 +14,10 @@ function timerShowDisplay() {
   const timerDisplay = document.createElement("div");
   clockContainer.appendChild(timerDisplay);
 
+  const containerHours = document.createElement("div");
+  containerHours.classList.add("info");
+  timerDisplay.appendChild(containerHours);
+
   // HOURS
   const inputHours = document.createElement("input");
   inputHours.classList.add("timer-display-text");
@@ -23,14 +27,30 @@ function timerShowDisplay() {
   inputHours.setAttribute("min", "0");
   inputHours.setAttribute("max", "99");
   inputHours.setAttribute("placeholder", "00");
-  timerDisplay.appendChild(inputHours);
+  containerHours.appendChild(inputHours);
 
-  const spanHours = document.createElement("span");
-  spanHours.textContent = "h";
-  timerDisplay.appendChild(spanHours);
+  // MAX-LENGTH HOURS
+  var inputFormatHours = document.getElementById("hoursIn");
+  inputFormatHours.addEventListener("input", function () {
+    if (this.value.length > 2) this.value = this.value.slice(0, 2);
+  });
+
+  const infoHours = document.createElement("label");
+  infoHours.setAttribute("for", "hoursIn");
+  infoHours.textContent = "hours";
+  containerHours.appendChild(infoHours);
+
+  const points_1 = document.createElement("span");
+  points_1.classList.add("points");
+  points_1.textContent = ":";
+  timerDisplay.appendChild(points_1);
   //
 
   // MINUTES
+  const containerMinutes = document.createElement("div");
+  containerMinutes.classList.add("info");
+  timerDisplay.appendChild(containerMinutes);
+
   const inputMinutes = document.createElement("input");
   inputMinutes.classList.add("timer-display-text");
   inputMinutes.setAttribute("type", "number");
@@ -39,14 +59,30 @@ function timerShowDisplay() {
   inputMinutes.setAttribute("min", "0");
   inputMinutes.setAttribute("max", "59");
   inputMinutes.setAttribute("placeholder", "00");
-  timerDisplay.appendChild(inputMinutes);
+  containerMinutes.appendChild(inputMinutes);
 
-  const spanMinutes = document.createElement("span");
-  spanMinutes.textContent = "m";
-  timerDisplay.appendChild(spanMinutes);
+  // MAX-LENGTH MINUTES
+  var inputFormatMinutes = document.getElementById("minutesIn");
+  inputFormatMinutes.addEventListener("input", function () {
+    if (this.value.length > 2) this.value = this.value.slice(0, 2);
+  });
+
+  const infoMinutes = document.createElement("label");
+  infoMinutes.setAttribute("for", "minutesIn");
+  infoMinutes.textContent = "minutes";
+  containerMinutes.appendChild(infoMinutes);
+
+  const points_2 = document.createElement("span");
+  points_2.classList.add("points");
+  points_2.textContent = ":";
+  timerDisplay.appendChild(points_2);
   //
 
   // SECONDS
+  const containerSeconds = document.createElement("div");
+  containerSeconds.classList.add("info");
+  timerDisplay.appendChild(containerSeconds);
+
   const inputSeconds = document.createElement("input");
   inputSeconds.classList.add("timer-display-text");
   inputSeconds.setAttribute("type", "number");
@@ -56,11 +92,86 @@ function timerShowDisplay() {
   inputSeconds.setAttribute("max", "59");
   inputSeconds.setAttribute("placeholder", "00");
   inputSeconds.setAttribute("autofocus", "true");
-  timerDisplay.appendChild(inputSeconds);
+  containerSeconds.appendChild(inputSeconds);
 
-  const spanSeconds = document.createElement("span");
-  spanSeconds.textContent = "s";
-  timerDisplay.appendChild(spanSeconds);
+  // MAX-LENGTH SECONDS
+  var inputFormatSeconds = document.getElementById("secondsIn");
+  inputFormatSeconds.addEventListener("input", function () {
+    if (this.value.length > 2) this.value = this.value.slice(0, 2);
+  });
+
+  const infoSeconds = document.createElement("label");
+  infoSeconds.setAttribute("for", "secondsIn");
+  infoSeconds.textContent = "seconds";
+  containerSeconds.appendChild(infoSeconds);
+}
+//
+
+// TIMER ACTIVE
+function timerShowDisplayActive() {
+  clockContainer.classList.add("timer");
+  const timerDisplay = document.createElement("div");
+  clockContainer.appendChild(timerDisplay);
+
+  // HOURS
+  const containerHours = document.createElement("div");
+  containerHours.classList.add("info");
+  timerDisplay.appendChild(containerHours);
+
+  const textHours = document.createElement("span");
+  textHours.setAttribute("id", "hours");
+  textHours.textContent = "00";
+  containerHours.appendChild(textHours);
+
+  const infoHours = document.createElement("p");
+  infoHours.textContent = "hours";
+  containerHours.appendChild(infoHours);
+
+  const points_1 = document.createElement("span");
+  points_1.classList.add("points");
+  points_1.textContent = ":";
+  timerDisplay.appendChild(points_1);
+  //
+
+  // MINUTES
+  const containerMinutes = document.createElement("div");
+  containerMinutes.classList.add("info");
+  timerDisplay.appendChild(containerMinutes);
+
+  const textMinutes = document.createElement("span");
+  textMinutes.setAttribute("id", "minutes");
+  textMinutes.textContent = "00";
+  containerMinutes.appendChild(textMinutes);
+
+  const infoMinutes = document.createElement("p");
+  infoMinutes.textContent = "minutes";
+  containerMinutes.appendChild(infoMinutes);
+
+  const points_2 = document.createElement("span");
+  points_2.classList.add("points");
+  points_2.textContent = ":";
+  timerDisplay.appendChild(points_2);
+  //
+
+  //SECONDS
+  const containerSeconds = document.createElement("div");
+  containerSeconds.classList.add("info");
+  timerDisplay.appendChild(containerSeconds);
+
+  const textSeconds = document.createElement("span");
+  textSeconds.setAttribute("id", "seconds");
+  textSeconds.textContent = "00";
+  containerSeconds.appendChild(textSeconds);
+
+  const infoSeconds = document.createElement("p");
+  infoSeconds.textContent = "seconds";
+  containerSeconds.appendChild(infoSeconds);
+  //
+
+  hours = document.getElementById("hours");
+  minutes = document.getElementById("minutes");
+  seconds = document.getElementById("seconds");
+  miliSeconds = document.getElementById("mili-seconds");
   //
 }
 //
@@ -71,6 +182,7 @@ function chronometerShowDisplay() {
   const chronometerDisplay = document.createElement("div");
   clockContainer.appendChild(chronometerDisplay);
 
+  // HOURS
   const containerHours = document.createElement("div");
   containerHours.classList.add("info");
   chronometerDisplay.appendChild(containerHours);
@@ -88,7 +200,9 @@ function chronometerShowDisplay() {
   points_1.classList.add("points");
   points_1.textContent = ":";
   chronometerDisplay.appendChild(points_1);
+  //
 
+  // MINUTES
   const containerMinutes = document.createElement("div");
   containerMinutes.classList.add("info");
   chronometerDisplay.appendChild(containerMinutes);
@@ -106,7 +220,9 @@ function chronometerShowDisplay() {
   points_2.classList.add("points");
   points_2.textContent = ":";
   chronometerDisplay.appendChild(points_2);
+  //
 
+  //SECONDS
   const containerSeconds = document.createElement("div");
   containerSeconds.classList.add("info");
   chronometerDisplay.appendChild(containerSeconds);
@@ -124,11 +240,14 @@ function chronometerShowDisplay() {
   points_3.classList.add("points");
   points_3.textContent = ",";
   chronometerDisplay.appendChild(points_3);
+  //
 
+  // MILI-SECONDS
   const textMiliSeconds = document.createElement("span");
   textMiliSeconds.setAttribute("id", "mili-seconds");
   textMiliSeconds.textContent = "00";
   chronometerDisplay.appendChild(textMiliSeconds);
+  //
 
   hours = document.getElementById("hours");
   minutes = document.getElementById("minutes");
@@ -176,7 +295,7 @@ function chronometerShowButtons() {
 showTitle();
 chronometerShowDisplay();
 chronometerShowButtons();
-// excecuteTimer();
-excecuteChronometer();
+excecuteTimer();
+// excecuteChronometer();
 buttons.removeChild(btnStop);
 buttons.replaceChild(btnStart, btnStop);
